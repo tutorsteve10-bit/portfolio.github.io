@@ -4,6 +4,7 @@
 This repository contains the complete source code for my personal portfolio website, designed to showcase my skills, projects, and professional experience.
 
 ✨ Features
+
 Fully Responsive Design: Optimized for desktop, tablet, and mobile viewing.
 
 Modern UI/UX: A clean, intuitive, and accessible user interface.
