@@ -1,0 +1,182 @@
+/* --- CSS Variables for Easy Maintenance --- */
+:root {
+    --primary-color: #2575fc;
+    --secondary-color: #6a11cb;
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --card-bg: #ffffff;
+    --nav-bg: #ffffff;
+    --shadow: rgba(0,0,0,0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Dark Mode Variables */
+body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --card-bg: #1f1f1f;
+    --nav-bg: #1f1f1f;
+    --shadow: rgba(0,0,0,0.5);
+}
+
+/* --- Reset & Base --- */
+* {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif;}
+html {scroll-behavior: smooth;}
+body {line-height: 1.6; background-color: var(--bg-color); color: var(--text-color); transition: background 0.3s, color 0.3s;}
+
+.container {width: 90%; max-width: 1100px; margin: 0 auto;}
+
+/* --- Navbar --- */
+nav {background-color: var(--nav-bg); padding: 1rem 0; box-shadow: 0 2px 5px var(--shadow); position: sticky; top: 0; z-index: 1000; transition: background 0.3s;}
+.nav-container {display: flex; justify-content: space-between; align-items: center;}
+.logo {font-weight: 700; font-size: 1.5rem; color: var(--primary-color);}
+
+ul.nav-links {list-style: none; display: flex; gap: 2rem; align-items: center;}
+ul.nav-links li a {text-decoration: none; color: var(--text-color); font-weight: 500; transition: color 0.3s;}
+ul.nav-links li a:hover {color: var(--primary-color);}
+
+.nav-actions {display: flex; gap: 1rem; align-items: center;}
+
+/* Dark Mode Toggle */
+#theme-toggle {background: none; border: none; cursor: pointer; font-size: 1.2rem; color: var(--text-color);}
+
+/* Hamburger Menu (Hidden on Desktop) */
+.hamburger {display: none; cursor: pointer; flex-direction: column; gap: 5px;}
+.bar {width: 25px; height: 3px; background-color: var(--text-color); transition: var(--transition);}
+
+/* --- Hero Section --- */
+.hero {height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(to right, var(--secondary-color), var(--primary-color)); color: #fff; padding: 0 1rem;}
+.hero h1 {font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1rem;}
+.hero p {font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9;}
+.hero .btn {padding: 0.8rem 2rem; background-color: #fff; color: var(--primary-color); border: none; border-radius: 5px; text-decoration: none; font-weight: 700; transition: var(--transition);}
+.hero .btn:hover {transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.2);}
+
+/* --- General Sections --- */
+section {padding: 5rem 0;}
+section h2 {text-align: center; margin-bottom: 3rem; font-size: 2rem; color: var(--primary-color);}
+
+/* --- About --- */
+.about p {text-align: center; max-width: 700px; margin: 0 auto; font-size: 1.1rem;}
+
+/* --- Projects --- */
+.project-filters {text-align: center; margin-bottom: 2rem;}
+.filter-btn {padding: 0.5rem 1.2rem; margin: 0.3rem; border: 1px solid var(--primary-color); background: transparent; color: var(--primary-color); font-weight: 500; border-radius: 20px; cursor: pointer; transition: var(--transition);}
+.filter-btn.active, .filter-btn:hover {background-color: var(--primary-color); color: #fff;}
+
+.projects .project-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;}
+
+.project-card {background-color: var(--card-bg); border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px var(--shadow); transition: transform 0.3s;}
+.project-card:hover {transform: translateY(-10px);}
+
+.project-img-wrapper {width: 100%; height: 180px; background-color: #ddd; overflow: hidden;}
+.project-img-wrapper img {width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;}
+.project-card:hover .project-img-wrapper img {transform: scale(1.1);}
+
+.project-info {padding: 1.5rem;}
+.project-info h3 {margin-bottom: 0.5rem; color: var(--text-color);}
+.project-info p {font-size: 0.9rem; margin-bottom: 1rem; color: var(--text-color); opacity: 0.8;}
+.project-link {text-decoration: none; color: var(--primary-color); font-weight: 500;}
+
+/* --- Skills --- */
+.skills-grid {display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;}
+.skill {background-color: var(--card-bg); border: 1px solid #ddd; padding: 0.8rem 1.5rem; border-radius: 5px; font-weight: 500; transition: var(--transition); box-shadow: 0 2px 5px var(--shadow);}
+body.dark-mode .skill {border-color: #333;}
+.skill:hover {border-color: var(--primary-color); color: var(--primary-color); transform: translateY(-3px);}
+
+/* --- Contact --- */
+.contact form {max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem;}
+.form-group {display: flex; flex-direction: column;}
+/* Screen reader only label */
+.sr-only {position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0,0,0,0); border: 0;}
+
+.contact input, .contact textarea {padding: 1rem; border: 1px solid #ddd; border-radius: 5px; background-color: var(--card-bg); color: var(--text-color); outline: none; transition: border 0.3s;}
+.contact input:focus, .contact textarea:focus {border-color: var(--primary-color);}
+
+.contact button {padding: 1rem; border: none; background-color: var(--primary-color); color: #fff; font-weight: 700; border-radius: 5px; cursor: pointer; transition: background 0.3s;}
+.contact button:hover {background-color: var(--secondary-color);}
+.form-message {text-align: center; margin-top: 1rem; font-weight: 500;}
+
+/* --- Footer --- */
+footer {background-color: #111; color: #fff; text-align: center; padding: 2rem 0; margin-top: auto;}
+
+/* --- Animations --- */
+.reveal {opacity: 0; transform: translateY(30px); transition: all 0.8s ease;}
+.reveal.active {opacity: 1; transform: translateY(0);}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    .hamburger {display: flex; z-index: 1001;}
+    
+    ul.nav-links {
+        position: fixed;
+        top: 0; right: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: var(--nav-bg);
+        flex-direction: column;
+        justify-content: center;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        transition: right 0.3s ease-in-out;
+    }
+    
+    ul.nav-links.nav-active {right: 0;}
+    
+    /* Burger Animation */
+    .hamburger.toggle .bar:nth-child(1) {transform: rotate(-45deg) translate(-5px, 6px);}
+    .hamburger.toggle .bar:nth-child(2) {opacity: 0;}
+    .hamburger.toggle .bar:nth-child(3) {transform: rotate(45deg) translate(-5px, -6px);}
+}
+/*
+ * ==============================
+ * HERO SECTION & PROFILE PICTURE
+ * ==============================
+ */
+.hero .container {
+    /* Use flexbox to align text and image side-by-side */
+    display: flex;
+    flex-direction: column; /* Default stack on mobile */
+    align-items: center;
+    text-align: center;
+    gap: 3rem; /* Space between text and image */
+    padding-top: 4rem; /* Add some top padding */
+    padding-bottom: 4rem; /* Add some bottom padding */
+}
+
+@media (min-width: 768px) {
+    .hero .container {
+        flex-direction: row; /* Side-by-side on desktop/tablet */
+        text-align: left;
+    }
+    .hero-text {
+        flex: 2; /* Gives more space to the text */
+    }
+    .hero-image {
+        flex: 1; /* Gives less space to the image wrapper */
+        display: flex;
+        justify-content: flex-end; /* Align image to the right */
+    }
+}
+
+
+.hero-image img {
+    width: 200px; /* Base size for the image */
+    height: 200px;
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    border-radius: 50%; /* Makes the image circular */
+    border: 5px solid var(--primary-color, #2575fc); /* Border around the image */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s ease;
+}
+
+.hero-image img:hover {
+    transform: scale(1.05);
+}
+
+/* Ensure the text is on the left when side-by-side */
+@media (min-width: 768px) {
+    .hero h1, .hero p, .hero .btn {
+        margin-left: 0;
+        margin-right: auto;
+    }
+                                                                                                                                                 }
+               
